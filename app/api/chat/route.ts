@@ -8,14 +8,14 @@ export async function POST(req: Request) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: Bearer ${process.env.MISTRAL_API_KEY},
+        Authorization: `Bearer ${process.env.MISTRAL_API_KEY}`,
       },
       body: JSON.stringify({
         model: "mistral-small-latest",
         messages: [
           {
             role: "system",
-            content: 
+            content: `
 Tu es l'assistant virtuel de TimeTravel Agency, une agence de voyage temporel de luxe.
 
 Ton ton :
@@ -30,7 +30,7 @@ Crétacé -65M – 9900€ / 2 jours
 Florence 1504 – 5800€ / 3 jours
 
 Tu aides les clients à choisir leur destination et répondre à leurs questions.
-            ,
+            `,
           },
           {
             role: "user",
