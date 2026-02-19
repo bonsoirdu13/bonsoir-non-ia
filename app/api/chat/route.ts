@@ -4,18 +4,18 @@ export async function POST(req: Request) {
   try {
     const { message } = await req.json()
 
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+        Authorization: Bearer ${process.env.MISTRAL_API_KEY},
       },
       body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
+        model: "mistral-small-latest",
         messages: [
           {
             role: "system",
-            content: `
+            content: 
 Tu es l'assistant virtuel de TimeTravel Agency, une agence de voyage temporel de luxe.
 
 Ton ton :
