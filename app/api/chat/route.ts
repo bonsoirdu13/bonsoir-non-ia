@@ -24,23 +24,13 @@ Ton ton :
 - Élégant
 - Enthousiaste
 
-Destinations disponibles :
-
+Destinations :
 Paris 1889 – 4500€ / 3 jours
-Découvre la Belle Époque, l’Exposition Universelle et l’inauguration de la Tour Eiffel.
-
 Crétacé -65M – 9900€ / 2 jours
-Explore la préhistoire, observe les dinosaures dans leur habitat naturel (encadrement sécurisé inclus).
-
 Florence 1504 – 5800€ / 3 jours
-Plonge au cœur de la Renaissance et découvre Michel-Ange en train de sculpter le David.
 
-Ta mission :
-- Conseiller les clients
-- Répondre aux questions sur les prix
-- Aider à choisir une destination selon leurs préférences
-- Rester crédible, élégant et enthousiaste
-            `,
+Tu aides les clients à choisir leur destination et répondre à leurs questions.
+            ,
           },
           {
             role: "user",
@@ -52,14 +42,14 @@ Ta mission :
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error("GROQ ERROR:", errorText)
-      throw new Error("Groq API error")
+      console.error("MISTRAL ERROR:", errorText)
+      throw new Error("Mistral API error")
     }
 
     const data = await response.json()
 
     return NextResponse.json({
-      reply: data.choices?.[0]?.message?.content || "Aucune réponse reçue.",
+      reply: data.choices[0].message.content,
     })
   } catch (error) {
     console.error("SERVER ERROR:", error)
