@@ -1,3 +1,4 @@
+console.log("GROQ KEY:", process.env.GROQ_API_KEY)
 import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
